@@ -51,7 +51,7 @@ Object oSelectLiga is a cWebView
 
         Object oligaEquipos is a cWebColumn
             Entry_Item liga.Equipos
-            Set psCaption to "liga.Equipos"
+            Set psCaption to "Equipos Registrados"
             Set piWidth to 214
             Set pbNewLine to False                  
             Set peAlign to alignLeft
@@ -59,7 +59,7 @@ Object oSelectLiga is a cWebView
 
         Object oligaEquiposMax is a cWebColumn
             Entry_Item liga.EquiposMax
-            Set psCaption to "liga.EquiposMax"
+            Set psCaption to "Maximo Total Equipos"
             Set piWidth to 195
             Set pbNewLine to False
             Set peAlign to alignLeft

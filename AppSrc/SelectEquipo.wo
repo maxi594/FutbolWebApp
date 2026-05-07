@@ -46,13 +46,23 @@ Object oSelectEquipo is a cWebView
             Set peAlign to alignLeft
         End_Object 
         
-            Object oligaID is a cWebColumn
-            Entry_Item liga.ID
-            Set psCaption to "equipo.LigaID"
+            Object oliga_nombre is a cWebColumn
+            Entry_Item liga.nombre
+            Set psCaption to "Liga"
             Set piWidth to 241
             Set pbNewLine to False
             Set peAlign to alignLeft
         End_Object 
+
+     Object oliga_pais is a cWebColumn
+            Entry_Item liga.pais
+            Set psCaption to "Pais"
+            Set piWidth to 241
+            Set pbNewLine to False
+            Set peAlign to alignLeft
+        End_Object 
+
+
 
 
         Object oDetailButton is a cWebColumnButton
