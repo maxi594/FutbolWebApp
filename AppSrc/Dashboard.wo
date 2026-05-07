@@ -54,11 +54,11 @@ Object oDashboard is a cWebView
             Object oWelcomeTile is a cWebHtmlBox
                 Set piColumnSpan to 13
                 Set psCSSClass to "Tile Light"
-                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Welcome</div><div Class="Tile_Subtitle">--</div></div>'
+                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">¡¡Bienvenidos a Futbol para todos!!</div><div Class="Tile_Subtitle">--</div></div>'
     
                 Procedure OnLoad
                     Send UpdateHTML ('<div class="WebCon_Sizer">' + ;
-                                     '<div class="Tile_Title">Welcome</div>' +;
+                                     '<div class="Tile_Title">¡¡Bienvenidos a Futbol para todos!!</div>' +;
                                      '<div class="Tile_Subtitle">' - htmlEncode(psUserName(ghoWebSessionManager)) - '</div>' +;
                                      '</div>')
                 End_Procedure
