@@ -46,14 +46,7 @@ Object oZoomLiga is a cWebView
             Set psLabel to "Pais"
         End_Object 
 
-        Object oligaEquipos is a cWebForm
-            Entry_Item liga.Equipos
-            Set piColumnSpan to 2
-            Set piColumnIndex to 8
-            Set peLabelPosition to lpTop
-            Set psLabel to "Equipos"
-        End_Object 
-
+     
         Object oligaEquiposMax is a cWebForm
             Entry_Item liga.EquiposMax
             Set piColumnSpan to 2

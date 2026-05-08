@@ -63,7 +63,34 @@ Object oZoomEntrenador is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
         End_Object 
+        
+        
+            Object oentrenadorEquipo is a cWebForm
+            Entry_Item equipo.Nombre
+            Set piColumnSpan to 12
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Nombre del equipo"
+            Set pbPromptButton to True
+
+// ToDo: Fill in the from-child parent Select view object name for navigate forward
+           WebRegisterPath ntNavigateForward oSelectEquipo
+
+            Procedure OnPrompt
+                Send NavigatePath
+            End_Procedure
+        End_Object 
+        
+        
+        
     End_Object 
+    
+  
+    
+    
+    
+    
+    
 
     Object oActionGroup is a cWebMenuGroup
 
