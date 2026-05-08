@@ -77,7 +77,7 @@ Object oSelectJugador is a cWebView
             Set peAlign to alignRight
 
 // ToDo: Fill in the from-main Zoom view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oZoomView
+            WebRegisterPath ntNavigateForward oZoomJugador
 
             Procedure OnClick
                 Send NavigatePath
@@ -92,7 +92,7 @@ Object oSelectJugador is a cWebView
       
 
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
-//        WebRegisterPath ntNavigateForward oSelectView
+        WebRegisterPath ntNavigateForward oZoomJugador
 
         Procedure OnRowClick String sRowId
             tWebNavigateData NavigateData
@@ -101,8 +101,8 @@ Object oSelectJugador is a cWebView
             Case Begin
                 Case (NavigateData.eNavigateType = nfFromParent)
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
+//Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
+                    Send NavigateForward of oZoomJugador Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
@@ -115,8 +115,8 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
 
                 Case Else // must be nfUndefined
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
+//Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
+                    Send NavigateForward of oZoomJugador Self
 
             Case End
         End_Procedure
@@ -144,7 +144,7 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
             Set psCaption to "New"
 
 // ToDo: Fill in the from-main Zoom view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oZoomView
+            WebRegisterPath ntNavigateForward oZoomJugador
 
             Procedure OnClick
                 Send NavigatePath
