@@ -99,7 +99,7 @@ Object oSelectEquipo is a cWebView
                 Case (NavigateData.eNavigateType = nfFromParent)
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-                    Send NavigateForward of oZoomEquipo Self
+                //    Send NavigateForward of oZoomEquipo Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
@@ -113,7 +113,7 @@ Object oSelectEquipo is a cWebView
                 Case Else // must be nfUndefined
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-                    Send NavigateForward of oZoomEquipo Self
+                 //   Send NavigateForward of oZoomEquipo Self
 
             Case End
         End_Procedure
@@ -122,6 +122,13 @@ Object oSelectEquipo is a cWebView
             Move True to NavigateData.bReadOnly
         End_Procedure
 
+  Procedure OnGetNavigateBackData tWebNavigateData ByRef NavigateData Handle hoBackToView
+          Forward Send OnGetNavigateBackData (&NavigateData) hoBackToView
+          String sHaol
+          Move "Fui a recoger datos/ Invoking object" to sHaol
+          Send ShowInfoBox sHaol
+        End_Procedure      
+  
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

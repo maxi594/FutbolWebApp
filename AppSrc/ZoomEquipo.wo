@@ -174,6 +174,16 @@ Object oZoomEquipo is a cWebView
         Case End
 
         Send SetActionButtons
+        
+         If (HasRecord(Server(Self))) Begin
+        Send SetHeaderCaption  ("Equipo:"*equipo.Nombre)
+        Send SetBreadcrumbCaption equipo.Nombre
+        End
+        Else Begin
+            Send SetHeaderCaption  "Nuevo Equipo"
+            Send SetBreadcrumbCaption "Nuevo"
+        End
+        
 
     End_Procedure
 

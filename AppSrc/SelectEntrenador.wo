@@ -25,15 +25,15 @@ Object oSelectEntrenador is a cWebView
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
     End_Object 
 
     Object oentrenador_DD is a centrenadorDataDictionary
-        Set DDO_Server To oequipo_DD
+        Set DDO_Server to oequipo_DD
     End_Object 
 
-    Set Main_DD To oentrenador_DD
-    Set Server  To oentrenador_DD
+    Set Main_DD to oentrenador_DD
+    Set Server  to oentrenador_DD
 
 
     Object oList is a cWebList
@@ -86,9 +86,10 @@ Object oSelectEntrenador is a cWebView
                 Send NavigatePath
             End_Procedure
 
-            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-                Move True to NavigateData.bReadOnly
-            End_Procedure
+         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+            Move True to NavigateData.bReadOnly
+            Send ShowInfoBox "1-OnGetNavigateForwardData. Estoy saliendo de Select ponte en solo lectura" "Invoked object/detail button"
+        End_Procedure
 
         End_Object 
 
@@ -106,7 +107,7 @@ Object oSelectEntrenador is a cWebView
                 Case (NavigateData.eNavigateType = nfFromParent)
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-                    Send NavigateForward of oZoomEntrenador Self
+                   // Send NavigateForward of oZoomEntrenador Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
@@ -120,14 +121,11 @@ Object oSelectEntrenador is a cWebView
                 Case Else // must be nfUndefined
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
 //Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-                    Send NavigateForward of oZoomEntrenador Self
+                    //Send NavigateForward of oZoomEntrenador Self
 
             Case End
         End_Procedure
 
-        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-            Move True to NavigateData.bReadOnly
-        End_Procedure
 
     End_Object 
 
@@ -186,5 +184,10 @@ Object oSelectEntrenador is a cWebView
 
     End_Procedure
 
+
+      Procedure OnNavigateBack Handle hoOriginView tWebNavigateData NavigateData
+        Forward Send OnNavigateBack hoOriginView NavigateData
+        Send ShowInfoBox "5. OnNavigateBack (Select): ¡Vuelta completada con éxito en el Servidor!"
+    End_Procedure
 
 End_Object 

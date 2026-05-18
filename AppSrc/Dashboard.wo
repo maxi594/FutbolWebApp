@@ -27,7 +27,7 @@ Object oDashboard is a cWebView
     // constraints in the next view that we navigate to.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-    Set piMaxWidth to 1024
+    Set piMaxWidth to 4000
     
     Set psCaption to "Dashboard"
     Set peViewType to vtUndefined
@@ -45,7 +45,7 @@ Object oDashboard is a cWebView
     
         Object oTiles_grp is a cWebGroup
             Set piColumnSpan to 21
-            Set pbShowBorder to False
+            Set pbShowBorder to True
             Set pbShowCaption to False
             Set piColumnCount to 12
             
@@ -106,6 +106,7 @@ Object oDashboard is a cWebView
      
      Procedure OnClick String sId String sParam
          Send NavigatePath
+         Send ShowInfoBox "Vista Select/Invoking View" 
      End_Procedure
      
  End_Object

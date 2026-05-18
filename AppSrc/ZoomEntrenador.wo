@@ -77,8 +77,18 @@ Object oZoomEntrenador is a cWebView
            WebRegisterPath ntNavigateForward oSelectEquipo
 
             Procedure OnPrompt
+                Forward Send OnPrompt
                 Send NavigatePath
             End_Procedure
+            
+            
+            
+            
+              Procedure OnNavigateBack Handle hoCallBack tWebNavigateData NavigateData 
+           Forward Send OnNavigateBack hoCallBack NavigateData 
+           Send ShowInfoBox "Ya he vuelto al Zoom" "Invoked View"
+  End_Procedure
+            
         End_Object 
         
         
@@ -87,11 +97,6 @@ Object oZoomEntrenador is a cWebView
     
   
     
-    
-    
-    
-    
-
     Object oActionGroup is a cWebMenuGroup
 
         Object oSaveBtn is a cWebMenuItem
@@ -138,7 +143,7 @@ Object oZoomEntrenador is a cWebView
 
     Procedure SetActionButtons
         tWebNavigateData NavigateData
-        Boolean bHasRecord
+        Boolean bHasRecord 
         Handle hoDD
 
         Get Server to hoDD
@@ -188,9 +193,23 @@ Object oZoomEntrenador is a cWebView
             Case Else // must be nfUndefined
 
         Case End
+        
+        Send ShowInfoBox "2- Acabo de llegar" "Invoked View/ZoomEntrenador"
 
         Send SetActionButtons
-
+        
+        If (HasRecord(Server(Self))) Begin
+        Send SetHeaderCaption  ("Entrenador:"*entrenador.Nombre)
+        Send SetBreadcrumbCaption entrenador.Nombre
+        End
+        Else Begin
+            Send SetHeaderCaption  "Nuevo Entrenador"
+            Send SetBreadcrumbCaption "Nuevo"
+        End
     End_Procedure
 
+Procedure OnGetNavigateBackData tWebNavigateData ByRef NavigateData
+        Forward Send OnGetNavigateBackData (&NavigateData)
+        Send ShowInfoBox "4. OnGetNavigateBackData (Zoom): Armando valijas para regresar al Select"
+    End_Procedure
 End_Object 
