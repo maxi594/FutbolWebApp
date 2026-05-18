@@ -74,14 +74,12 @@ Object oZoomEntrenador is a cWebView
             Set pbPromptButton to True
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
+          
            WebRegisterPath ntNavigateForward oSelectEquipo
-
             Procedure OnPrompt
                 Forward Send OnPrompt
                 Send NavigatePath
             End_Procedure
-            
-            
             
             
               Procedure OnNavigateBack Handle hoCallBack tWebNavigateData NavigateData 
@@ -210,6 +208,6 @@ Object oZoomEntrenador is a cWebView
 
 Procedure OnGetNavigateBackData tWebNavigateData ByRef NavigateData
         Forward Send OnGetNavigateBackData (&NavigateData)
-        Send ShowInfoBox "4. OnGetNavigateBackData (Zoom): Armando valijas para regresar al Select"
+        Send ShowInfoBox "4. OnGetNavigateBackData (Zoom):  Preparando para regresar al Select"
     End_Procedure
 End_Object 

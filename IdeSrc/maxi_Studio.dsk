@@ -1,7 +1,19 @@
 [Workspace]
 CurrentProject=WebApp.src
 Location=C:\DataFlex Projects\FutbolWebApp\IdeSrc\maxi_Studio.dsk
-CreateNew=3
+CreateNew=-1
 [TabWindows]
-GroupCount=0
+GroupCount=1
 HorizontalGroups=1
+[TabGroup0]
+GroupSize=40
+SelectedTab=0
+[Window0]
+Filename=Workspace Dashboard
+ViewType=101
+Top=21
+Left=0
+Bottom=344
+Right=845
+TabIndex=0
+TabGroup=0
