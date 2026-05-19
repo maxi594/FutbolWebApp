@@ -1,5 +1,5 @@
 Compiling Program: C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
-Memory Available: 5713907712
+Memory Available: 7293714432
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (C:\Program Files\DataFlex 25.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -1756,7 +1756,7 @@ Including file: hijoentrenador.fd    (C:\DataFlex Projects\FutbolWebApp\DDSrc\hi
 37616>>>
 37616>>>         Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
 37619>>>            Move True to NavigateData.bReadOnly
-37620>>>            Send ShowInfoBox "1-OnGetNavigateForwardData. Estoy saliendo de Select ponte en solo lectura" "Invoked object/detail button"
+37620>>>            Send ShowInfoBox "Estoy saliendo de Select ponte en solo lectura" "1-OnGetNavigateForwardData.Invoked object/detail button"
 37621>>>        End_Procedure
 37622>>>
 37622>>>        End_Object 
@@ -1845,12 +1845,9 @@ Including file: hijoentrenador.fd    (C:\DataFlex Projects\FutbolWebApp\DDSrc\hi
 37697>>>                // If from main, this is a probably a main-file lookup from a Zoom
 37697>>>                WebSet pbRender of oDetailButton to False
 37698>>>                Case Break
-37699>>>
 37699>>>            Case Else // must be nfUndefined
 37699>>>                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-37699>>>
 37699>>>        Case End
-37699>>>
 37699>>>    End_Procedure
 37700>>>
 37700>>>
@@ -1938,14 +1935,12 @@ Including file: ZoomEntrenador.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Z
 37765>>>            Set pbPromptButton to True
 37766>>>
 37766>>>// ToDo: Fill in the from-child parent Select view object name for navigate forward
+37766>>>          
 37766>>>           WebRegisterPath ntNavigateForward oSelectEquipo
-37772>>>
 37772>>>            Procedure OnPrompt
 37775>>>                Forward Send OnPrompt
 37777>>>                Send NavigatePath
 37778>>>            End_Procedure
-37779>>>            
-37779>>>            
 37779>>>            
 37779>>>            
 37779>>>              Procedure OnNavigateBack Handle hoCallBack tWebNavigateData NavigateData 
@@ -2079,7 +2074,7 @@ Including file: ZoomEntrenador.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\Z
 37886>>>
 37886>>>Procedure OnGetNavigateBackData tWebNavigateData ByRef NavigateData
 37889>>>        Forward Send OnGetNavigateBackData (&NavigateData)
-37891>>>        Send ShowInfoBox "4. OnGetNavigateBackData (Zoom): Armando valijas para regresar al Select"
+37891>>>        Send ShowInfoBox "4. OnGetNavigateBackData (Zoom):  Preparando para regresar al Select"
 37892>>>    End_Procedure
 37893>>>End_Object 
 37894>    Use SelectJugador.wo
@@ -3668,7 +3663,7 @@ Including file: ZoomLiga.wo    (C:\DataFlex Projects\FutbolWebApp\AppSrc\ZoomLig
 39226>Send StartWebApp of oWebApp
 39227>
 Summary
-Memory Available: 5697056768
+Memory Available: 7290191872
 Total Warnings : 0
 Total Errors   : 0
 Total Symbols  : 25684
@@ -3676,6 +3671,6 @@ Total Resources: 0
 Total Commands : 39226
 Total Windows  : 0
 Total Pages    : 0
-Static Data    : 486323
+Static Data    : 486315
 Message area   : 263644
 Total Blocks   : 17409
