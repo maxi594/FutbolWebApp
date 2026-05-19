@@ -7,8 +7,10 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
-
+Use cWebButton.pkg
+Use cWebButton.pkg
 Use cligaDataDictionary.dd
+
 
 Object oZoomLiga is a cWebView
     Set piColumnCount to 12
@@ -54,7 +56,24 @@ Object oZoomLiga is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "EquiposMax"
         End_Object 
+        
+    // --- boton para ver todos los equipos ---
+        Object oBtnVerEquipos is a cWebButton
+            Set psCaption to "Ver todos los equipos de esta Liga"
+            Set piColumnSpan to 12
+            Set piColumnIndex to 0
+            
+            WebRegisterPath ntNavigateForward oSelectEquipo
+
+            Procedure OnClick
+          
+                Send NavigatePath
+            End_Procedure
+        End_Object
+    
     End_Object 
+    
+    
 
     Object oActionGroup is a cWebMenuGroup
 
@@ -114,6 +133,8 @@ Object oZoomLiga is a cWebView
         WebSet pbRender of oSaveBtn to False
         WebSet pbRender of oCancelChangesBtn to False
         WebSet pbRender of oDeleteBtn to False
+        
+        WebSet pbRender of oBtnVerEquipos to bHasRecord
 
         If (NavigateData.bReadOnly) Begin
             WebSet pbRender of oEditBtn to True
@@ -154,6 +175,15 @@ Object oZoomLiga is a cWebView
         Case End
 
         Send SetActionButtons
+        
+         If (HasRecord(Server(Self))) Begin
+        Send SetHeaderCaption  ("Liga:"*liga.Nombre)
+        Send SetBreadcrumbCaption liga.Nombre
+        End
+        Else Begin
+            Send SetHeaderCaption  "Nueva Liga"
+            Send SetBreadcrumbCaption "Nuevo"
+        End
 
     End_Procedure
 

@@ -224,6 +224,14 @@ End_Object
         Case End
 
         Send SetActionButtons
+         If (HasRecord(Server(Self))) Begin
+        Send SetHeaderCaption  ("Jugador:"*jugador.Nombre)
+        Send SetBreadcrumbCaption jugador.Nombre
+        End
+        Else Begin
+            Send SetHeaderCaption  "Nuevo jugador"
+            Send SetBreadcrumbCaption "Nuevo"
+        End
 
     End_Procedure
 
