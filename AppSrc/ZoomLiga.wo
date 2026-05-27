@@ -9,7 +9,17 @@ Use cWebMenuItem.pkg
 Use cWebForm.pkg
 Use cWebButton.pkg
 Use cWebButton.pkg
+Use cWebGroup.pkg
 Use cligaDataDictionary.dd
+
+//Librerias para la WEbList
+
+Use cWebList.pkg
+Use cWebColumn.pkg
+Use cequipoDataDictionary.dd
+
+
+
 
 
 Object oZoomLiga is a cWebView
@@ -25,7 +35,17 @@ Object oZoomLiga is a cWebView
     End_Object 
 
     Set Main_DD To oliga_DD
-    Set Server  To oliga_DD
+    Set Server  to oliga_DD
+    
+ //Añadimos el DDO de equipos relacionado con el de Ligas mas la constraint par ver los equipos  
+    Object oequipo_DD is a cequipoDataDictionary
+    Set DDO_Server to oliga_DD
+    Set Constrain_file to liga.File_Number
+End_Object 
+
+Set Main_DD to oliga_DD
+Set Server  to oliga_DD
+
 
 
     Object oWebMainPanel is a cWebPanel
@@ -70,10 +90,32 @@ Object oZoomLiga is a cWebView
                 Send NavigatePath
             End_Procedure
         End_Object
+        
+        
     
-    End_Object 
+  //--------WebGroup para agrupar la lista---------- 
+    Object oequiposAgrupados is a cWebGroup
+            Set psCaption to "Equipos en esta Liga" 
+            Set piColumnSpan to 12
+            Set piColumnIndex to 0
     
+//----------Web list para ver los equipos--------------
     
+      Object olistaEquipos is a cWebList
+        Set Server to oequipo_DD
+        Set piColumnSpan to 12
+        Set piMinHeight to 300
+   
+
+        Object onombreEquipo is a cWebColumn
+            Entry_Item equipo.Nombre
+            Set psCaption to "Nombre del equipo"
+            Set piWidth to 60
+        End_Object
+    End_Object
+    End_Object
+    
+   End_Object    
 
     Object oActionGroup is a cWebMenuGroup
 
