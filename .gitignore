@@ -1,0 +1,8 @@
+*.exe
+*.dbg
+*.dsk
+*.loc
+*-64.exe
+Programs/
+AppHtml/Help/
+IDSLOG.txt
